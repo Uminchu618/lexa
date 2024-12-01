@@ -29,9 +29,7 @@ import models
 import tools
 import wrappers
 import gcdreamer_wm, gcdreamer_imag
-
-# import envs
-from dm_control.suite import DmcEnv
+import envs
 
 
 class Dreamer(tools.Module):
