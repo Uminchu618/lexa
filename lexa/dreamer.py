@@ -16,6 +16,7 @@ from tensorflow_probability import distributions as tfd
 
 from tensorflow.keras.mixed_precision import set_global_policy
 
+
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 tf.get_logger().setLevel("ERROR")
 warnings.filterwarnings("ignore", ".*box bound precision lowered.*")
@@ -28,7 +29,9 @@ import models
 import tools
 import wrappers
 import gcdreamer_wm, gcdreamer_imag
-import envs
+
+# import envs
+from dm_control.suite import DmcEnv
 
 
 class Dreamer(tools.Module):
