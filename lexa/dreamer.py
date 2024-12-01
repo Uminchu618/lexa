@@ -14,6 +14,8 @@ import tensorflow as tf
 from tensorflow.keras import mixed_precision as prec
 from tensorflow_probability import distributions as tfd
 
+from tensorflow.keras.mixed_precision import set_global_policy
+
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 tf.get_logger().setLevel("ERROR")
 warnings.filterwarnings("ignore", ".*box bound precision lowered.*")
@@ -351,7 +353,8 @@ def setup_dreamer(config, logdir):
             tf.config.experimental.set_memory_growth(gpu, True)
     assert config.precision in (16, 32), config.precision
     if config.precision == 16:
-        prec.set_policy(prec.Policy("mixed_float16"))
+        # prec.set_policy(prec.Policy("mixed_float16"))
+        set_global_policy("mixed_float16")
     print("Logdir", logdir)
     logdir.mkdir(parents=True, exist_ok=True)
     step = count_steps(config.traindir)
