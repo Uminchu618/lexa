@@ -4,3 +4,5 @@
     4  mount /dev/vdb /mnt/ext
     5  echo "/dev/vdb /mnt/ext ext4 defaults 0 0" >> /etc/fstab
     6  history
+    
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
